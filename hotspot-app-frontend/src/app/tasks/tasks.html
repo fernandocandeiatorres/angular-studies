@@ -1,0 +1,27 @@
+<section id="tasks">
+  <!-- @if (!isAddingTask()) { -->
+  <header>
+    <h2>{{ name() }}'s Tasks</h2>
+  </header>
+  <menu>
+    <button (click)="onStartAddTask()">Add Task</button>
+    @if (isAddingTask()) {
+    <app-new-task
+      (cancel)="onCancelAddTask()"
+      (add)="onCancelAddTask()"
+      [userId]="userId()"
+    />
+    }
+  </menu>
+  <ul>
+    @for (task of selectedUserTasks(); track task) {
+    <li class="px-4 py-3 mb-2 bg-gray-50 border rounded-md">
+      <app-task [task]="task" />
+    </li>
+    } @empty {
+    <p class="text-center text-gray-500">
+      Nenhuma tarefa encontrada para este utilizador.
+    </p>
+    }
+  </ul>
+</section>
