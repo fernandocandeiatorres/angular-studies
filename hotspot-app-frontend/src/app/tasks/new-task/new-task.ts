@@ -17,6 +17,7 @@ export interface TaskCreationDto {
 @Component({
   selector: 'app-new-task',
   imports: [ReactiveFormsModule],
+  standalone: true,
   templateUrl: './new-task.html',
   styleUrl: './new-task.css',
 })

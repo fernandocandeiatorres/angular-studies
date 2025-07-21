@@ -1,0 +1,33 @@
+@if (annualData().length > 0) {
+<section>
+  <h2>Investment Results</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Annual Investment</th>
+        <th>Interest (Year)</th>
+        <th>Total Interest</th>
+        <th>Invested Capital</th>
+        <th>Value At End of Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (data of annualData(); track data.year) {
+      <tr>
+        <td>{{ data.year }}</td>
+        <td>{{ data.annualInvestment }}</td>
+        <td>{{ data.interest }}</td>
+        <td>{{ data.totalInterest }}</td>
+        <td>{{ data.totalAmountInvested }}</td>
+        <td>{{ data.valueEndOfYear }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</section>
+} @else {
+<p class="center">
+  Please enter your investment details and click "Calculate".
+</p>
+}
